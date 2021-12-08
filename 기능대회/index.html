@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/d3a92e2a8f.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./resources1/store.json" type="text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>내집꾸미기</h1>
+        <nav>
+            <ul>
+                <li><a href="">홈</a></li>
+                <li><a href="">온라인 집들이</a></li>
+                <li><a href="">스토어</a></li>
+                <li><a href="">전문가</a></li>
+                <li><a href="">시공견적</a></li>
+            </ul>
+            <div class="buttons">
+                <button>로그인</button>
+                <button>회원가입</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <input type="text" placeholder="검색어를 입력해주세요" class="input">
+        <div class="all">
+        <div class="list">
+            <h2>모든 상품 리스트</h2>
+            <div class="itemlist">
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="./resources1/pr1.JPG" alt="">
+                            <h4 class="h41">상품이름</h4>
+                            <p>제조사</p>
+                            <span>가격</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./resources1/pr2.jpg" alt="">
+                            <h4>상품이름</h4>
+                            <p>제조사</p>
+                            <span>가격</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./resources1/pr3.JPG" alt="">
+                            <h4>상품이름</h4>
+                            <p>제조사</p>
+                            <span>가격</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./resources1/pr4.JPG" alt="">
+                            <h4>상품이름</h4>
+                            <p>제조사</p>
+                            <span>가격</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="cart">
+            <h2>장바구니</h2>
+            <div class="cartlist">
+                <div class="here">이곳에 상품을 놓아주세요</div>
+                <p>총 합계 0 원</p>
+                <button>구매하기</button>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <script>
+        
+            $.ajax({
+            url: "/resources1/store.json",
+            type: "GET"
+        }).done(function(data){
+            console.log(data);
+            for(var i = 0; i<5; i++){
+            var title = document.querySelectorAll('h4')[i];
+            var brand = document.querySelectorAll('p')[i];
+            var price = document.querySelectorAll('span')[i];
+            var img = document.querySelectorAll('img')[i];
+            $(title).html(data.products[i].product_name);
+            $(brand).html(data.products[i].brand_name);
+            $(price).html(data.products[i].price);
+            }
+            var titles = $('.h41').text();
+             var inputval = $('.input').val();
+            
+             $('.input').change(function(){
+        
+            console.log(titles.indexOf(inputval))
+        });
+    });
+    console.log(titles);
+       
+       
+    </script>
+</body>
+</html>
