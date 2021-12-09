@@ -135,8 +135,44 @@ header{
   background-color: salmon;
   border-radius: 5px;
   }
+  main  .all .cart .dropafter{
+    display: flex;
+    
+  }
+  main  .all .cart .dropafter .img{
+    width: 100px;
+  }
+  main  .all .cart .dropafter img{
+width: 100%;
+  }
+  main  .all .cart .dropafter h4{
+
+  }
+  main  .all .cart .dropafter p{
+
+  }
+  main  .all .cart .dropafter a{
+
+  }
+  main  .all .cart .dropafter a span{
+
+  }
+  main  .all .cart .dropafter span{
+
+  }
   main .all{
       
   display: flex;
   align-items: flex-start;
+  }
+  .modal{
+    background-color: antiquewhite;
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 10px;
+    left: calc(100% / 2 - 20px);
+  }
+  .modal input{
+    width: 150px;
   }

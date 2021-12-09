@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="reset.css">    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
-    <script src="main.js"></script>
-    <script src="https://kit.fontawesome.com/d3a92e2a8f.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="./resources1/store.json" type="text/javascript"></script>
-    <script src="/jquery-1.6.2.min.js"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="resources1/jquery-ui.min.css">
+    <script src="resources1/jquery-3.5.1.min.js"></script>
+    <script src="resources1/jquery-ui.js"></script>
+    <script src="./main.js"></script>
+    
+    
+
+    
     <title>Document</title>
 </head>
 <body>
@@ -38,7 +41,7 @@
             <h2>모든 상품 리스트</h2>
             <div class="itemlist">
                 <ul>
-                    <li>
+                    <li class="dragitem">
                         <a href="">
                             <img src="./resources1/pr1.JPG" alt="">
                             <h4 class="h41">상품이름</h4>
@@ -46,7 +49,7 @@
                             <span>가격</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="dragitem">
                         <a href="">
                             <img src="./resources1/pr2.jpg" alt="">
                             <h4>상품이름</h4>
@@ -54,7 +57,7 @@
                             <span>가격</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="dragitem">
                         <a href="">
                             <img src="./resources1/pr3.JPG" alt="">
                             <h4>상품이름</h4>
@@ -62,7 +65,7 @@
                             <span>가격</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="dragitem">
                         <a href="">
                             <img src="./resources1/pr4.JPG" alt="">
                             <h4>상품이름</h4>
@@ -76,12 +79,22 @@
         <div class="cart">
             <h2>장바구니</h2>
             <div class="cartlist">
+                <div class="cartwrap">
                 <div class="here">이곳에 상품을 놓아주세요</div>
+                
+                </div>
                 <p>총 합계 0 원</p>
-                <button>구매하기</button>
+                <button class="buy">구매하기</button>
             </div>
         </div>
     </div>
+<div class="modal">
+    <form action="">
+        <input type="text" placeholder="성함을 입력하세요" class="name">
+        <input type="text" placeholder="전화번호를 입력하세요" class="pnumber"> 
+    </form>
+</div>
+
     </main>
 
     <script>
@@ -115,27 +128,24 @@
                 e.preventDefault();
 
                 var input = document.getElementById("input").value;
-                console.log(input);
-                console.log(titles2);
                 var find = titles.indexOf(input);
                 var find1 = titles1.indexOf(input);
                 var find2 = titles2.indexOf(input);
                 var find3 = titles3.indexOf(input);
-                console.log(find);
 
                 if(find >= 0){
                     $('.itemlist ul li').eq(0).show();
                     $('.itemlist ul li').eq(0).siblings().hide();
                 }
-                else if(find1 >=0){
+                if(find1 >=0){
                     $('.itemlist ul li').eq(1).show();
                     $('.itemlist ul li').eq(1).siblings().hide();
                 }
-                else if(find2 >= 0){
+                if(find2 >= 0){
                     $('.itemlist ul li').eq(2).show();
                     $('.itemlist ul li').eq(2).siblings().hide();
                 }
-                else if(find3 >= 0){
+                if(find3 >= 0){
                     $('.itemlist ul li').eq(3).show();
                     $('.itemlist ul li').eq(3).siblings().hide();
                 }
@@ -143,6 +153,7 @@
                  
 
             });
+        
        
     </script>
 </body>
