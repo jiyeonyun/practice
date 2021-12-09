@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/d3a92e2a8f.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./resources1/store.json" type="text/javascript"></script>
+    <script src="/jquery-1.6.2.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -30,7 +31,8 @@
         </nav>
     </header>
     <main>
-        <input type="text" placeholder="검색어를 입력해주세요" class="input">
+        <form id="form">
+        <input type="text" placeholder="검색어를 입력해주세요" id="input"></form>
         <div class="all">
         <div class="list">
             <h2>모든 상품 리스트</h2>
@@ -85,7 +87,7 @@
     <script>
         
             $.ajax({
-            url: "/resources1/store.json",
+            url: "./resources1/store.json",
             type: "GET"
         }).done(function(data){
             console.log(data);
@@ -98,9 +100,49 @@
             $(brand).html(data.products[i].brand_name);
             $(price).html(data.products[i].price);
             }
-     
-        });
-       
+        }
+);
+            $.ajax({
+            url: "./resources1/store.json",
+            type: "GET"
+            }).done(function(data){
+            var titles =data.products[0].product_name;
+            var titles1 =data.products[1].product_name;
+            var titles2 =data.products[2].product_name;
+            var titles3 =data.products[3].product_name;
+            var form = document.getElementById('form');
+                form.addEventListener('submit',function(e){
+                e.preventDefault();
+
+                var input = document.getElementById("input").value;
+                console.log(input);
+                console.log(titles2);
+                var find = titles.indexOf(input);
+                var find1 = titles1.indexOf(input);
+                var find2 = titles2.indexOf(input);
+                var find3 = titles3.indexOf(input);
+                console.log(find);
+
+                if(find >= 0){
+                    $('.itemlist ul li').eq(0).show();
+                    $('.itemlist ul li').eq(0).siblings().hide();
+                }
+                else if(find1 >=0){
+                    $('.itemlist ul li').eq(1).show();
+                    $('.itemlist ul li').eq(1).siblings().hide();
+                }
+                else if(find2 >= 0){
+                    $('.itemlist ul li').eq(2).show();
+                    $('.itemlist ul li').eq(2).siblings().hide();
+                }
+                else if(find3 >= 0){
+                    $('.itemlist ul li').eq(3).show();
+                    $('.itemlist ul li').eq(3).siblings().hide();
+                }
+                });
+                 
+
+            });
        
     </script>
 </body>
