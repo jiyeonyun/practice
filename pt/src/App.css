@@ -1,55 +1,62 @@
+*{
+  color: rgb(0, 0, 0);
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h3{
+  margin: 0;
+  padding: 0;
+}
+form{
+  margin-top: 50px;
+}
+button{
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  width: 60px;
+  height: 20px;
+  margin-top: 20px;
+}
 .App {
   text-align: center;
+  
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-.black-nav {
-  background : black;
-  width : 100%;
-  display : flex;
-  color : white;
-  padding : 20px;
-  font-weight : 600;
-  font-size : 20px;
-}
-.list {
-  margin-top : 30px;
-  text-align : left;
-  padding-left : 20px;
-  padding-right : 20px;
-}
-.list span{
-  cursor: pointer;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.background{
+  background-image: url(./bg3.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+}
+.title{
+  margin: 0;
+  border: 0;
+  font-size: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.Temperature{
+  font-weight: bold;
+  font-size: 26px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.where{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  color: black;
+  display: block;
+  background-color: transparent;
 }
