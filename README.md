@@ -7,6 +7,6 @@
 ##### 4. 체감온도와 최저온도 최고온도를 넣었습니다<br>
 ##### 5. 기온별로 추천하는 옷을 안내하는 문구를 내보냅니다<br><br><br>
 ------------------------------------------------------------------------------
-<img src="https://user-images.githubusercontent.com/94913420/146631783-cc141734-c370-41f0-aa10-9beef2977ab7.mov">
+<img src="https://user-images.githubusercontent.com/94913420/146631783-cc141734-c370-41f0-aa10-9beef2977ab7.mov" width="300" height="400" />
 
 
