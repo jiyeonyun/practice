@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
-import axios from 'axios';
-import Recommand from './weather.js'
+import Recommand from './weather.js';
+import WeatehrIcon from './weathericons.js';
 
 const api = {
   key:"aaa27313875f00a755edeefc92500459",
@@ -50,14 +50,21 @@ function App() {
       <div className='background'>
         {(typeof weather.main != "undefined") ? (
         <div>
+          <div className='notrecommand'>
           <div className='date'>{dateBuilder(new Date())}</div>
-          <h1 className='city'>오늘{weather.name}의날씨는</h1>
+          <h1 className='city'>지금<span>{weather.name}</span>의날씨는</h1>
           <ul>
-            <li><i class="far fa-snowflake"></i></li>
             <li class ="weatherNow">{weather.weather[0].main}</li>
+            <li><WeatehrIcon weather={weather}></WeatehrIcon></li>
             <li><span className='Temperature'>{Math.round(weather.main.temp)}</span>℃입니다</li>
+            <Recommand weather={weather} />
           </ul>
-         <Recommand weather={weather}/>
+          <ul className ="anotherInfo">
+          <li>체감:{weather.main.feels_like}℃</li>
+          <li>최고:{weather.main.temp_max}℃</li>
+          <li>최저:{weather.main.temp_min}℃</li>
+          </ul>
+          </div>
       </div>
       ) :('')}
         <div className='search-box'>
@@ -69,8 +76,6 @@ function App() {
       </div>
   )
 }
-
-
 
 
 /*리액트에서 class=""를 넣고 싶으면 className="" 이라고 사용*/
